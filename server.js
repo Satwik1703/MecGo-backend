@@ -15,6 +15,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
+  knex('parentlogin')
+  .select()
+  .then(data => console.log);
   res.send("Working!");
 })
 
