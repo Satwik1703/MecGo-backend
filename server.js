@@ -16,6 +16,10 @@ var knex = require('knex')({
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.send("Working!");
+})
+
 app.post('/parent/login', (req, res) => {
   var info = req.body;
   knex('parentlogin')
@@ -132,8 +136,8 @@ app.post('/security/accept', (req, res) => {
   .then(response => res.json("Success"));
 })
 
-var PORT = 3000;
-app.listen(PORT, ()=>{console.log(PORT)});
+var PORT = process.env.PORT;
+app.listen(PORT);
 
 //parentlogin TABLE (name, username[rollnumber], password)---
 //securitylogin TABLE (username, password)---
