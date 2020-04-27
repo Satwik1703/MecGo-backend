@@ -5,16 +5,7 @@ const cors = require('cors');
 
 var knex = require('knex')({
   client: 'pg',
-  connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-  },
-  migrations: {
-            directory: __dirname + '/db/migrations',
-        },
-  seeds: {
-            directory: __dirname + '/db/seeds/production',
-        },
+  connection: process.env.DATABASE_URL
 });
 
 app.use(cors());
