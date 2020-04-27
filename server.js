@@ -15,9 +15,12 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
+  console.log(process.env.DATABASE_URL);
   knex('parentlogin')
+  .where({username: 'Satwik'})
   .select()
-  .then(data => console.log);
+  .then(data => console.log)
+  .catch(console.log("Database not connected"));
   res.send("Working!");
 })
 
