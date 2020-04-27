@@ -19,9 +19,8 @@ app.get('/', (req, res) => {
   knex('parentlogin')
   .where({username: 'Satwik'})
   .select()
-  .then(data => console.log)
+  .then(data => res.send('yo'))
   .catch(console.log("Database not connected"));
-  res.send(process.env.DATABASE_URL);
 })
 
 app.post('/parent/login', (req, res) => {
