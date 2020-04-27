@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   .select()
   .then(data => console.log)
   .catch(console.log("Database not connected"));
-  res.send("Working!");
+  res.send(process.env.DATABASE_URL);
 })
 
 app.post('/parent/login', (req, res) => {
