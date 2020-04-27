@@ -8,7 +8,13 @@ var knex = require('knex')({
   connection: {
     connectionString: process.env.DATABASE_URL,
     ssl: true,
-  }
+  },
+  migrations: {
+            directory: __dirname + '/db/migrations',
+        },
+  seeds: {
+            directory: __dirname + '/db/seeds/production',
+        },
 });
 
 app.use(cors());
